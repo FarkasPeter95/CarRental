@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RentalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CarRentalServices" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/CarRentalSevices" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRentalService_AddClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddClient" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_AddClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetAllClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClients" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetAllClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchClientById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClientById" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchClientById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClientByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClient" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_AddCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCar" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_AddCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCar" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_DeleteCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCar" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_DeleteCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateCarImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCarImage" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateCarImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCarImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetAllCars_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCars" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetAllCars_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCar" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchCarById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCarById" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_SearchCarById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCarByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_NextCarId_InputMessage">
+    <wsdl:part name="parameters" element="tns:NextCarId" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_NextCarId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NextCarIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetAllRentals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRentals" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetAllRentals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRentalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_AddRental_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRental" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_AddRental_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRentalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetRentalById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRentalById" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetRentalById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRentalByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_NextRentalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:NextRentalId" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_NextRentalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NextRentalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateRental_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRental" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_UpdateRental_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRentalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_CloseRental_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseRental" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_CloseRental_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseRentalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetUserByeUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByeUserName" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetUserByeUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByeUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetReportData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportData" />
+  </wsdl:message>
+  <wsdl:message name="IRentalService_GetReportData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRentalService">
+    <wsdl:operation name="AddClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/AddClient" message="tns:IRentalService_AddClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/AddClientResponse" message="tns:IRentalService_AddClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/UpdateClient" message="tns:IRentalService_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/UpdateClientResponse" message="tns:IRentalService_UpdateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/DeleteClient" message="tns:IRentalService_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/DeleteClientResponse" message="tns:IRentalService_DeleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/GetAllClients" message="tns:IRentalService_GetAllClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/GetAllClientsResponse" message="tns:IRentalService_GetAllClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchClientById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/SearchClientById" message="tns:IRentalService_SearchClientById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/SearchClientByIdResponse" message="tns:IRentalService_SearchClientById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/SearchClient" message="tns:IRentalService_SearchClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/SearchClientResponse" message="tns:IRentalService_SearchClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/AddCar" message="tns:IRentalService_AddCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/AddCarResponse" message="tns:IRentalService_AddCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/UpdateCar" message="tns:IRentalService_UpdateCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/UpdateCarResponse" message="tns:IRentalService_UpdateCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/DeleteCar" message="tns:IRentalService_DeleteCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/DeleteCarResponse" message="tns:IRentalService_DeleteCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCarImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/UpdateCarImage" message="tns:IRentalService_UpdateCarImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/UpdateCarImageResponse" message="tns:IRentalService_UpdateCarImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCars">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/GetAllCars" message="tns:IRentalService_GetAllCars_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/GetAllCarsResponse" message="tns:IRentalService_GetAllCars_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/SearchCar" message="tns:IRentalService_SearchCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/SearchCarResponse" message="tns:IRentalService_SearchCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCarById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/SearchCarById" message="tns:IRentalService_SearchCarById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/SearchCarByIdResponse" message="tns:IRentalService_SearchCarById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NextCarId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/NextCarId" message="tns:IRentalService_NextCarId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/NextCarIdResponse" message="tns:IRentalService_NextCarId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRentals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/GetAllRentals" message="tns:IRentalService_GetAllRentals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/GetAllRentalsResponse" message="tns:IRentalService_GetAllRentals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRental">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/AddRental" message="tns:IRentalService_AddRental_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/AddRentalResponse" message="tns:IRentalService_AddRental_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRentalById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/GetRentalById" message="tns:IRentalService_GetRentalById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/GetRentalByIdResponse" message="tns:IRentalService_GetRentalById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NextRentalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/NextRentalId" message="tns:IRentalService_NextRentalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/NextRentalIdResponse" message="tns:IRentalService_NextRentalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRental">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/UpdateRental" message="tns:IRentalService_UpdateRental_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/UpdateRentalResponse" message="tns:IRentalService_UpdateRental_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseRental">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/CloseRental" message="tns:IRentalService_CloseRental_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/CloseRentalResponse" message="tns:IRentalService_CloseRental_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/Login" message="tns:IRentalService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/LoginResponse" message="tns:IRentalService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByeUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/GetUserByeUserName" message="tns:IRentalService_GetUserByeUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/GetUserByeUserNameResponse" message="tns:IRentalService_GetUserByeUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentalService/GetReportData" message="tns:IRentalService_GetReportData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentalService/GetReportDataResponse" message="tns:IRentalService_GetReportData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRentalService" type="tns:IRentalService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddClient">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/AddClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/DeleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClients">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/GetAllClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchClientById">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/SearchClientById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchClient">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/SearchClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCar">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/AddCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCar">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/UpdateCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCar">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/DeleteCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCarImage">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/UpdateCarImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCars">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/GetAllCars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCar">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/SearchCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCarById">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/SearchCarById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NextCarId">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/NextCarId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRentals">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/GetAllRentals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRental">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/AddRental" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRentalById">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/GetRentalById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NextRentalId">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/NextRentalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRental">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/UpdateRental" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseRental">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/CloseRental" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByeUserName">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/GetUserByeUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportData">
+      <soap:operation soapAction="http://tempuri.org/IRentalService/GetReportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RentalService">
+    <wsdl:port name="BasicHttpBinding_IRentalService" binding="tns:BasicHttpBinding_IRentalService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/CarRentalServices/RentalService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

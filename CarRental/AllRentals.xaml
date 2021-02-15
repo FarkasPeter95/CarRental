@@ -1,0 +1,42 @@
+﻿<Window x:Class="CarRental.AllRentals"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"       
+        Title="AllRentals" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgRentals" MouseDoubleClick="dgRentals_MouseDoubleClick"  AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Autó" Binding="{Binding Path=Carid}"/>
+                <DataGridTextColumn Header="Ügyfél" Binding="{Binding Path=Clientid}"/>
+                <DataGridTextColumn Header="Elvitel" Binding="{Binding Path=Dateout}"/>
+                <DataGridTextColumn Header="Visszahozta" Binding="{Binding Path=Datein}"/>
+                <DataGridTextColumn Header="Km ki." Binding="{Binding Path=Kmout}"/>
+                <DataGridTextColumn Header="Km vi." Binding="{Binding Path=Kmin}"/>
+                <DataGridTextColumn Header="Megtett km" Binding="{Binding Path=Kmsdriven}"/>
+                <DataGridTextColumn Header="Időtartam" Binding="{Binding Path=Duration}"/>
+                <DataGridTextColumn Header="Típus" Binding="{Binding Path=Renttype}"/>
+                <DataGridTextColumn Header="Összesen" Binding="{Binding Path=Cost}"/>
+                <DataGridTextColumn Header="Kedvezmény" Binding="{Binding Path=Discount}"/>
+                <DataGridTextColumn Header="Végösszeg" Binding="{Binding Path=Total}"/>
+                <DataGridTextColumn Header="Hátralék" Binding="{Binding Path=Balance}"/>
+                <DataGridTextColumn Header="Kezelő" Binding="{Binding Path=Issueby}"/>
+                <DataGridTextColumn Header="Dátum" Binding="{Binding Path=Datetime}"/>
+                <DataGridTextColumn Header="Sztátusz" Binding="{Binding Path=Status}"/>
+
+
+                <!--<DataGridTextColumn Header="Szigsz" Binding="{Binding Path=Idcardnumber}"/>
+                <DataGridTextColumn Header="Név" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Szül. dátum" Binding="{Binding Path=Birthdate, StringFormat='yyyy.MM.dd.'}"/>
+                <DataGridTextColumn Header="Ir. szám" Binding="{Binding Path=Zipcode}"/>
+                <DataGridTextColumn Header="Település" Binding="{Binding Path=City}"/>
+                <DataGridTextColumn Header="Utca" Binding="{Binding Path=Adress}"/>
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Path=Phonenumber}"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

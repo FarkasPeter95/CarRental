@@ -1,0 +1,118 @@
+﻿<Window x:Class="CarRental.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        xmlns:c="clr-namespace:CarRentalServices;assembly=CarRentalServices"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Új ügyfél felvitele" Height="290" Width="400"
+        Background="LightGray">
+
+
+    <Window.Resources>
+        <c:Client x:Key="data"/>
+        <Style x:Key="textBoxInError" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="datePickerInError" TargetType="DatePicker">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <c:Client/>
+    </Window.DataContext>
+    
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="6">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel >
+                <Label Content="Szig. szám:" />
+                <Label Content="Név:" />
+                <Label Content="Szül. dátum:" Margin="0,4,0,4" />
+                <Label Content="Ir. szám:" />
+                <Label Content="Település:" />
+                <Label Content="Utca:" />
+                <Label Content="Telefon:" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox x:Name="tbIdCardNumber" Margin="4" Style="{StaticResource textBoxInError}">
+                    <TextBox.Text>
+                        <Binding Path="Idcardnumber"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox x:Name="tbName" Margin="4" Style="{StaticResource textBoxInError}">
+                    <TextBox.Text>
+                        <Binding Path="Name"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>            
+                <DatePicker Margin="4" x:Name="dpBirthDate" Style="{StaticResource datePickerInError}">
+                    <DatePicker.DisplayDate>
+                        <Binding Path="Birthdate"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DatePicker.DisplayDate>
+                </DatePicker>
+                <TextBox x:Name="tbZipCode" Margin="4" Style="{StaticResource textBoxInError}">
+                    <TextBox.Text>
+                        <Binding Path="Zipcode"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <TextBox Margin="4" x:Name="tbCity" Text="{Binding City }"/>
+                <TextBox Margin="4" x:Name="tbAdress" Text="{Binding Adress }"/>
+                <TextBox Margin="4" x:Name="tbPhoneNumber" Text="{Binding Phonenumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged }"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <!--<Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>             
+            </Grid.ColumnDefinitions>-->
+            <Button x:Name="btnAdd"  Click="btnAdd_Click"  Content="Felvitel" Grid.Column="1" Margin="10"/>
+        </Grid>
+    </Grid>
+
+</Window>

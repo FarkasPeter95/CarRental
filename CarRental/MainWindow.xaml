@@ -1,0 +1,36 @@
+﻿<Window x:Class="CarRental.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Autókölcsönzés" Height="400" Width="600">
+    <Grid>
+        <Grid>
+            <Menu>
+                <MenuItem Header="Fiók" x:Name="miUser">
+                    <MenuItem Header="Felhasználóváltás" x:Name="miSwitchUser" Click="miSwitchUser_Click"></MenuItem>
+                </MenuItem>
+                <!--<MenuItem Header="Szerkesztés">
+                    <MenuItem Header="Ügyfelek" x:Name="miClient" Click="miClient_Click"></MenuItem>
+                    <MenuItem Header="Autók" x:Name="miCar" Click="miCar_Click" ></MenuItem>
+                </MenuItem>-->
+                <MenuItem Header="Ügyfelek">
+                    <MenuItem Header="Új hozzáadása" x:Name="miAddClient" Click="miAddClient_Click"></MenuItem>
+                    <MenuItem Header="Szerkesztés" x:Name="miEditClient" Click="miEditClient_Click" ></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Autók">
+                    <MenuItem Header="Új hozzáadása" x:Name="miAddCar" Click="miAddCar_Click"></MenuItem>
+                    <MenuItem Header="Szerkesztés" x:Name="miEditCar" Click="miEditCar_Click" ></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Kölcsönzés">
+                    <MenuItem Header="Új hozzáadása" x:Name="miRental" Click="miRental_Click"></MenuItem>
+                    <MenuItem Header="Összes kölcsönzés" x:Name="miAllRentals" Click="miAllRentals_Click" ></MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Label x:Name="lblLogin"  Content="" Grid.Column="3" HorizontalContentAlignment="Right" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

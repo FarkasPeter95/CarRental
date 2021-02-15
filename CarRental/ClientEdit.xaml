@@ -1,0 +1,180 @@
+﻿<Window x:Class="CarRental.ClientEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        xmlns:c="clr-namespace:CarRentalServices;assembly=CarRentalServices"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Ügyfelek kezelése" Height="310" Width="650"
+        Background="LightGray">
+
+    <Window.Resources>
+        <c:Client x:Key="data"/>
+        <Style x:Key="textBoxInError" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="datePickerInError" TargetType="DatePicker">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>               
+        <Grid Margin="4" Grid.Row="0">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+                
+            <Grid Margin="6">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel >
+                    <Label Content="Azonosító:" />
+                    <Label Content="Szig. szám:" />
+                    <Label Content="Név:" />
+                    <Label Content="Szül. dátum:" Margin="0,4,0,4" />
+                    <Label Content="Ir. szám:" />
+                    <Label Content="Település:" />
+                    <Label Content="Utca:" />
+                    <Label Content="Telefon:" />
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Margin="4" x:Name="tbClientID" IsEnabled="False" Text="{Binding SelectedItem.Id, ElementName=dgClient}" />
+
+                    <TextBox x:Name="tbIdCardNumber" Margin="4" Style="{StaticResource textBoxInError}">
+                        <TextBox.Text>
+                            <Binding Path="SelectedItem.Idcardnumber" ElementName="dgClient"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox x:Name="tbName" Margin="4" Style="{StaticResource textBoxInError}">
+                        <TextBox.Text>
+                            <Binding Path="SelectedItem.Name" ElementName="dgClient"
+                                     ValidatesOnDataErrors="True"   
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <DatePicker Margin="4" x:Name="dpBirthDate" Text="{Binding SelectedItem.Birthdate, ElementName=dgClient}" Style="{StaticResource datePickerInError}">
+                        <DatePicker.DisplayDate>
+                            <Binding Path="SelectedItem.Birthdate" ElementName="dgClient"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </DatePicker.DisplayDate>
+                    </DatePicker>
+                    <TextBox x:Name="tbZipCode" Margin="4" Style="{StaticResource textBoxInError}">
+                        <TextBox.Text>
+                            <Binding Path="SelectedItem.Zipcode" ElementName="dgClient"
+                                 ValidatesOnDataErrors="True"   
+                                 UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <!--<TextBox Margin="4" x:Name="tbIdCardNumber" Text="{Binding SelectedItem.Idcardnumber, ElementName=dgClient}"/>-->
+                    <!--<TextBox Margin="4" x:Name="tbName" Text="{Binding SelectedItem.Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=dgClient}"
+                             ToolTip="{Binding ErrorCollection[Name]}"/>-->
+
+                    <!--<DatePicker Margin="4" x:Name="dpBirthDate" DisplayDate="{Binding SelectedItem.Birthdate,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=dgClient}" Text="{Binding SelectedItem.Birthdate,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=dgClient}"-->
+                             <!--ToolTip="{Binding ErrorCollection[Birthdate]}"/>-->
+                    <!--<TextBox Margin="4" x:Name="tbZipCode" Text="{Binding SelectedItem.Zipcode, ElementName=dgClient}"/>-->
+                    <TextBox Margin="4" x:Name="tbCity" Text="{Binding SelectedItem.City, ElementName=dgClient}"/>
+                    <TextBox Margin="4" x:Name="tbAdress" Text="{Binding SelectedItem.Adress, ElementName=dgClient}"/>
+                    <TextBox Margin="4" x:Name="tbPhoneNumber" Text="{Binding SelectedItem.Phonenumber,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=dgClient}"
+                             ToolTip="{Binding ErrorCollection[Phonenumber]}" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="55"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Keresés:"/>
+                    <ComboBox x:Name="cobColumn" Grid.Column="1">
+                        <ComboBoxItem IsSelected="True" >Azonosító</ComboBoxItem>
+                        <ComboBoxItem>Szig. szám</ComboBoxItem>
+                        <ComboBoxItem>Név</ComboBoxItem>                     
+                    </ComboBox>
+                    <TextBox x:Name="tbClientFilter" Grid.Column="2" Margin="0,2,0,2"/>
+                    <Button x:Name="btnSearch" Content="OK" Grid.Column="3" Click="btnSearch_Click"></Button>
+                    <Button x:Name="btnClearSearch" Content="Töröl" Grid.Column="4" Click="btnClearSearch_Click"></Button>
+                </Grid>
+                <!--<Grid Margin="0,4,0,4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Keresés: Név"/>
+                    <TextBox x:Name="tbClientFilter" Grid.Column="1" Margin="0,2,0,2" TextChanged="tbClientFilter_TextChanged"/>
+                    <Label Content="ID" Grid.Column="2"/>
+                    <TextBox x:Name="tbClientIDFilter"  Grid.Column="3" Margin="0,2,0,2" TextChanged="tbClientIDFilter_TextChanged"/>
+
+                </Grid>-->
+                <DataGrid Name="dgClient" SelectionChanged="dgClient_SelectionChanged" Grid.Row="1" IsReadOnly="True" AutoGenerateColumns="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"/>
+                        <DataGridTextColumn Header="Szigsz" Binding="{Binding Path=Idcardnumber}"/>
+                        <DataGridTextColumn Header="Név" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="Szül. dátum" Binding="{Binding Path=Birthdate, StringFormat='yyyy.MM.dd.'}"/>
+                        <DataGridTextColumn Header="Ir. szám" Binding="{Binding Path=Zipcode}"/>
+                        <DataGridTextColumn Header="Település" Binding="{Binding Path=City}"/>
+                        <DataGridTextColumn Header="Utca" Binding="{Binding Path=Adress}"/>
+                        <DataGridTextColumn Header="Telefon" Binding="{Binding Path=Phonenumber}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>               
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>          
+            <Button x:Name="btnDelete" IsEnabled="False" Click="btnDelete_Click"  Content="Törlés" Grid.Column="1" Margin="10"/>
+            <Button x:Name="btnSave" IsEnabled="False" Click="btnSave_Click"  Content="Mentés" Grid.Column="0" Margin="10"/>
+        </Grid>
+    </Grid>
+</Window>
